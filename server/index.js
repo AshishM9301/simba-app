@@ -6,9 +6,9 @@ const cors = require("cors");
 
 const app = express();
 
-// const { User } = require("./models/Users");
-// const { UserSession } = require("./models/UserSession");
-// const { Auth } = require("./middleware/Auth");
+const { User } = require("./models/Users");
+const { UserSession } = require("./models/UserSession");
+const { Auth } = require("./middleware/Auth");
 const config = require("./config/keys");
 
 app.use(cors());
@@ -24,7 +24,7 @@ mongoose
   .then(() => console.log("Database is Connected"))
   .catch((err) => console.log(err));
 
-// app.use("/", require("./routes"));
+app.use("/", require("./routes"));
 
 var allowCrossDomain = function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
