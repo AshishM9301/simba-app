@@ -1,4 +1,6 @@
 const express = require("express");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 const { User } = require("../../../models/Users");
 const { UserSession } = require("../../../models/UserSession");
@@ -6,7 +8,7 @@ const app = express.Router();
 
 app.post("/", (req, res) => {
   const { body } = req;
-  const { firstName, lastName, password } = body;
+  const { firstName, lastName } = body;
   let { email } = body;
 
   console.log("error");
@@ -14,7 +16,7 @@ app.post("/", (req, res) => {
   if (!firstName) {
     return res.send({
       success: false,
-      errorMessage: "First Name is not Wriiten",
+      errorMessage: "First Name is not Written",
     });
   }
   if (!lastName) {
@@ -33,12 +35,6 @@ app.post("/", (req, res) => {
     return res.send({
       success: false,
       errorMessage: "Password field is Empty",
-    });
-  }
-  if (password.length < 6) {
-    return res.send({
-      success: false,
-      errorMessage: "Password is less than 6 character",
     });
   }
 
@@ -62,7 +58,6 @@ app.post("/", (req, res) => {
     newUser.email = email;
     newUser.firstName = firstName;
     newUser.lastName = lastName;
-    newUser.password = newUser.generateHash(password);
 
     newUser.save((err, user) => {
       if (err)
@@ -72,9 +67,77 @@ app.post("/", (req, res) => {
         });
       return res.send({
         success: true,
-        message: `${user.firstName} is Registered`,
+        message: `${user.firstName} is Registered Email has been sent to ${user.email}`,
       });
     });
+  });
+});
+
+app.get("/createpass:token", (req, res) => {
+  const token = req.params;
+
+  jwt.verify(token, "secret", (err, id) => {
+    if (err)
+      res.status(400).send({
+        success: false,
+        message: "Verification Failed",
+      });
+    User.findOne({ _id: id }, (err, user) => {
+      if (err)
+        res.status(400).send({
+          success: false,
+          message: "No User Found",
+        });
+
+      return res.status(200).send({
+        success: true,
+        data: user,
+      });
+    });
+  });
+});
+
+app.post("/passwordcreation", (req, res) => {
+  const { body } = req;
+  const { password, email, id } = body;
+
+  User.findOne({ _id: id, email: email }, (err, user) => {
+    if (err)
+      res.status(400).send({
+        success: false,
+        message: "Server Error",
+      });
+
+    if (user.length == 0)
+      res.status(400).send({
+        success: false,
+        message: "Server Error",
+      });
+
+    const newPass = bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+
+    User.findOneAndUpdate(
+      { _id: id, email: email },
+      { password: newPass },
+      (err, user) => {
+        if (err)
+          res.status(400).send({
+            success: false,
+            message: "Server Error",
+          });
+
+        if (user.length == 0)
+          res.status(400).send({
+            success: false,
+            message: "Server Error",
+          });
+
+        return res.status(200).send({
+          success: true,
+          message: `${user.firstName} is Registered Email has been sent to ${user.email}`,
+        });
+      }
+    );
   });
 });
 
