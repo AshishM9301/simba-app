@@ -31,9 +31,16 @@ const schoolSchema = mongoose.Schema({
   pocRole: {
     type: String,
   },
-  course: {
-    type: String,
-  },
+  courses: [
+    {
+      courseId: {
+        type: String,
+      },
+      courseName: {
+        type: String,
+      },
+    },
+  ],
 });
 
 const SchoolSchema = mongoose.model("School", schoolSchema);

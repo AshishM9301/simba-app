@@ -16,12 +16,30 @@ const taskSchema = mongoose.Schema({
   taskNotes: {
     type: String,
   },
-  updateTime: {
-    type: Date,
-  },
-  updateLogWithTime: {
+  taskCreatedBy: {
     type: String,
   },
+  taskAssignedTo: [
+    {
+      userId: {
+        type: String,
+      },
+      userName: {
+        type: String,
+      },
+    },
+  ],
+  updateLogWithTime: [
+    {
+      log: {
+        type: String,
+      },
+      created_at: {
+        type: Date,
+        default: Date.now(),
+      },
+    },
+  ],
 });
 
 const Task = mongoose.model("Task", taskSchema);

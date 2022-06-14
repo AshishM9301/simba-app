@@ -15,6 +15,10 @@ const userSchema = mongoose.Schema({
     type: String,
     unique: 1,
   },
+  companyName: {
+    type: String,
+    unique: 1,
+  },
   password: {
     type: String,
     minlength: 6,
