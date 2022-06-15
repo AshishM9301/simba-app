@@ -50,11 +50,44 @@ const Modal = ({ setShowModal }) => {
                 </label>
                 <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
                 <label className="block text-black text-sm font-bold mb-1">
-                  Address
+                  Email
+                </label>
+                <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+                <label className="block text-black text-sm font-bold mb-1">
+                  Phone Number
+                </label>
+                <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+                <label className="block text-black text-sm font-bold mb-1">
+                  Company Name
                 </label>
                 <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
                 <label className="block text-black text-sm font-bold mb-1">
                   City
+                </label>
+                <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+
+                <label className="block text-black text-sm font-bold mb-1">
+                  State
+                </label>
+                <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+
+                <label className="block text-black text-sm font-bold mb-1">
+                  Country
+                </label>
+                <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+
+                <label className="block text-black text-sm font-bold mb-1">
+                  Zip Code
+                </label>
+                <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+
+                <label className="block text-black text-sm font-bold mb-1">
+                  WebSite (Optional)
+                </label>
+                <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+
+                <label className="block text-black text-sm font-bold mb-1">
+                  Facebook / Instagram Link
                 </label>
                 <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
               </form>
