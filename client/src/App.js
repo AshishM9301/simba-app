@@ -1,7 +1,12 @@
 import React from "react";
+import RegisterAgent from "./components/RegisterAgent";
 
 const App = () => {
-  return <div>App</div>;
+  return (
+    <div>
+      <RegisterAgent />
+    </div>
+  );
 };
 
 export default App;
