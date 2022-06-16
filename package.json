@@ -4,14 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js",
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
     "server": "nodemon server/index.js",
-    "web": "npm start --prefix web"
+    "start": "node server/index.js",
+    "web": "npm start --prefix client",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build",
+    "dev": "concurrently -n 'server,client' -c 'red,green'  \"nodemon server.js\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "concurrently": "^7.2.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.18.1",

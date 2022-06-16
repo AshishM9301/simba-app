@@ -1,13 +1,13 @@
-import React, { Fragment, useRef, useState } from "react";
+import React, { useState } from "react";
 
-const RegisterAgent = () => {
+const RegisterStaff = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
       <button
         className="bg-blue-200 text-black active:bg-blue-500 
-    font-bold px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+      font-bold px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
         type="button"
         onClick={() => setShowModal(true)}
       >
@@ -59,58 +59,7 @@ const Modal = ({ setShowModal }) => {
 
                 <div className="mt-4">
                   <label className="block text-black text-sm font-bold mb-1">
-                    Phone Number
-                  </label>
-                  <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
-                </div>
-
-                <div className="mt-4">
-                  <label className="block text-black text-sm font-bold mb-1">
-                    Company Name
-                  </label>
-                  <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
-                </div>
-
-                <div className="flex w-full mt-4">
-                  <div className="">
-                    <label className="block text-black text-sm font-bold mb-1">
-                      City
-                    </label>
-                    <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
-                  </div>
-
-                  <div className="ml-4">
-                    <label className="block text-black text-sm font-bold mb-1">
-                      State
-                    </label>
-                    <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
-                  </div>
-                </div>
-
-                <div className="mt-4">
-                  <label className="block text-black text-sm font-bold mb-1">
-                    Country
-                  </label>
-                  <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
-                </div>
-
-                <div className="mt-4">
-                  <label className="block text-black text-sm font-bold mb-1">
-                    Zip Code
-                  </label>
-                  <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
-                </div>
-
-                <div className="mt-4">
-                  <label className="block text-black text-sm font-bold mb-1">
-                    WebSite (Optional)
-                  </label>
-                  <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
-                </div>
-
-                <div className="mt-4">
-                  <label className="block text-black text-sm font-bold mb-1">
-                    Facebook / Instagram Link
+                    Role
                   </label>
                   <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
                 </div>
@@ -139,4 +88,4 @@ const Modal = ({ setShowModal }) => {
   );
 };
 
-export default RegisterAgent;
+export default RegisterStaff;
