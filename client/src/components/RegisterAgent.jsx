@@ -14,7 +14,7 @@ const RegisterAgent = () => {
         type="button"
         onClick={() => setShowModal(true)}
       >
-        Fill Details
+        Register Agent
       </button>
       {showModal ? (
         <Modal setShowModal={() => setShowModal(!showModal)} />

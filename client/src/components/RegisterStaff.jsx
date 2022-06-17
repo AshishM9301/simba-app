@@ -14,7 +14,7 @@ const RegisterStaff = () => {
         type="button"
         onClick={() => setShowModal(true)}
       >
-        Fill Details
+        Register Staff
       </button>
       {showModal ? (
         <Modal setShowModal={() => setShowModal(!showModal)} />
