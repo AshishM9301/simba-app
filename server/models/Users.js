@@ -15,9 +15,29 @@ const userSchema = mongoose.Schema({
     type: String,
     unique: 1,
   },
+  phoneNumber: {
+    type: Number,
+  },
   companyName: {
     type: String,
-    unique: 1,
+  },
+  city: {
+    type: String,
+  },
+  state: {
+    type: String,
+  },
+  country: {
+    type: String,
+  },
+  zipCode: {
+    type: String,
+  },
+  websiteLink: {
+    type: String,
+  },
+  socialLink: {
+    type: String,
   },
   password: {
     type: String,

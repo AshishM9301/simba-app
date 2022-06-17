@@ -10,7 +10,7 @@
     "start": "node server/index.js",
     "web": "npm start --prefix client",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "dev": "concurrently -n 'server,client' -c 'red,green'  \"nodemon server.js\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"cd client && npm start\""
   },
   "author": "",
   "license": "ISC",
